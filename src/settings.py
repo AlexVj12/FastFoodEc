@@ -42,11 +42,13 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     
 ]
+
 CSRF_TRUSTED_ORIGINS = [
-    "https://fastfoodec.azurewebsites.net"
+    "https://fastfoodec.azurewebsites.net",
+    "https://fastfoodec.onrender.com"
 ]
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['fastfoodec.azurewebsites.net', 'fastfoodec.onrender.com']
 
 REST_FRAMEWORK = {
         'DEFAULT_PERMISSION_CLASSES': [
