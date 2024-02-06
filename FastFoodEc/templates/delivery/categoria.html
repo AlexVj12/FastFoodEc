@@ -1,0 +1,139 @@
+{%extends 'delivery/nav_bar_delivery.html' %}
+{%block content %} 
+<section class="restaurant-detailed-banner">
+    <div class="text-center">
+        <img class="img-fluid cover" src="https://askbootstrap.com/preview/osahan-eat/img/mall-dedicated-banner.png">
+    </div>
+        <div class="restaurant-detailed-header">
+            <div class="container">
+                <div class="row d-flex align-items-end">
+                    <div class="col-md-8">
+                        <div class="restaurant-detailed-header-left">
+                            <img class="img-fluid mr-3 float-left" alt="osahan" src="{{local.imagen}}">
+                            <h2 class="text-white">{{local.nombre}}</h2>
+                            <p class="text-white mb-1"><i class="icofont-location-pin"></i> {{local.direccion}} <span class="badge badge-success">Abierto</span>
+                            </p>
+                            <p class="text-white mb-0"><i class="icofont-food-cart"></i> {{local.descripcion}}
+                            </p>
+                            <div class="stars-outer">
+                                <p id="puntaje" class="puntaje">{{local.puntaje}}</p>
+                                <div class="stars-inner"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="restaurant-detailed-header-right text-right">
+                            <button class="btn btn-success" type="button"><i class="fa-solid fa-clock"></i>{{local.tiempo_entrega}} min
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+</section>
+
+<section class="content-category">
+
+    <div class="content-category-local"> 
+        <div class="content-category-item">
+            <p>Categorias</p>
+            <p><a class = "item-submenu" href="/delivery/detail/{{local.id}}"> Todo</a></p>
+            {% for categoria in categorias %}
+            <p><a class = "item-submenu" href="/delivery/detail/{{local.id}}/categoria/{{categoria.id}}"> {{categoria.nombre}}  </a> </p>
+            {% endfor %}
+        </div>
+    </div>
+
+  
+    <div class="content-category-productos">
+        <h6 class="content-products-tittle">{{categoriaN.nombre}}</h6>
+        <div class="content-products-item">
+            {% for productoC in productosC %}
+            <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+                <div class="list-card-image">
+                    <a href="#">
+                    <img src="{{productoC.imagen}}" class="img-fluid-2 item-img2">
+                    </a>
+                </div>
+                <div class="p-3 position-relative">
+                    <div class="list-card-body">
+                        <h6 class="mb-1"><a href="#" class="text-black">{{productoC.nombre}}</a></h6>
+                        <p class="text-gray mb-2">{{productoC.descripcion}}</p>
+                        <p class="text-gray time mb-0 color-txt"><a class="btn btn-link btn-sm pl-0 text-black pr-0" >$ {{productoC.precio}}</a> <span class="float-right">
+                        <a class="btn btn-outline-secondary btn-sm" href="{% url 'agregar_producto' productoC.id %}">AGREGAR</a>
+                        </span>
+                        </p>
+                    </div>
+                </div>
+            </div> 
+            
+            {% endfor %}
+        </div>
+
+
+    </div>
+
+    <div class="local-content-carrito">
+        <div class="content-carrito-productos-2" role="alert">
+            <table class="tabla-2">
+              <thead>
+                <tr>
+                  <th scope="row" colspan="3" class="text-center"> <i class="fa-solid fa-cart-shopping"></i> CARRITO</th>
+                </tr>
+                <tr>
+                  <th scope="col">NOMBRE</th>
+                  <th scope="col">PRECIO</th>
+                  <th scope="col">CANTIDAD</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% if request.session.carrito.items %}
+              {% for key, value in request.session.carrito.items %}
+                <tr>
+                  <td><img src="{{value.imagen}}"  class="img-cart-2" alt="" width="30" height="30"> {{value.nombre}}</td>
+                  <td>$ {{value.total}}</td>
+                  <td> <a href="{% url 'agregar_producto' value.producto_id %}" ><button class="btn-cart-2"> + </button></a>
+                    x {{value.cantidad}}
+                    <a href="{% url 'disminuir_producto' value.producto_id %}" ><button class="btn-cart-2"> - </button></a>
+                  </td>
+                </tr>
+              {% endfor %}
+              {% else %}
+              <tr>
+                  <td colspan="3">
+                 
+                    <div class="alert alert-danger text-center"> Carrito Vacio </div>
+                  </td>
+              </tr>
+              {% endif %}
+                <tr>
+                  <th scope="row">Total:</th>
+                  <td > $ {{total_carrito}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <hr>
+            <div class="botones-carrito">
+                <div class="div-btn-quitar-2"><a href="{% url 'vaciar_carrito' %}" ><button  class="btn-quitar-2" > Quitar Todo</button></a></div>
+                <div class="div-btn-pagar-2"><a href="{% url 'carrito' %}" ><button class="btn-pagar-2" >Pagar </button></a></div>
+            </div>
+            </div>
+    
+        
+    
+
+</div>
+
+
+
+</section>
+
+<section class="footer-section">
+  
+</section>
+
+
+
+{%endblock%}

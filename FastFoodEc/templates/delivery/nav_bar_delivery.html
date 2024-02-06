@@ -1,0 +1,67 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/style-delivery.css' %}">
+    
+    
+    <link rel="stylesheet" href="{% static 'polls/bootstrap.min.css' %}">
+    <script src="https://kit.fontawesome.com/71b6c393b8.js" crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    
+    <title>Fast Food Ecuador</title>
+</head>
+<body>
+    <nav class="nav-delivery">
+        <div class="content-nav">
+            <div class="content-nav-logo">
+                <a href=" {% url 'delivery_view' %}"><img src="{% static 'img/logo.png' %}" class="logo"></a>
+            </div>
+        </div>
+        <div class="content-nav-menu">
+
+            <ul class="content-nav-menu-delivery">
+                
+                <li class="item-nav-delivery"><a class = "item" href="{% url 'delivery_view' %}"><i class="fa-solid fa-house"></i>Inicio</a> </li>
+                <li class="item-nav-delivery"><a class = "item" href="{% url 'carrito' %}"><i class="fas fa-shopping-basket"></i>Carrito <span class="badge badge-success"> {{request.session.carrito.items|length }}</span></a></li>
+                <li class="item-nav-delivery"><a class = "item" href="/account/{{ user.pk }}"> <img  src="{{cliente.imagen}}" alt="" class="profile-img"> {{user.username}}<i class="fa-solid fa-caret-down"></i></a>
+                    <ul class=submenu>
+                        <li class="item-nav-delivery-submenu"><a class = "item-submenu" href="/account/{{ user.pk }}"><i class="fa-solid fa-user"></i> Mi Perfil</a></li>
+                        <li class="item-nav-delivery-submenu"><a class = "item-submenu" href="{%url 'logout' %}"><i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesion</a></li>
+                        
+                    </ul>
+                </li>
+                
+            </ul>
+
+        </div>
+
+    </nav>
+    {%block content %} 
+
+    {%endblock%}
+
+    
+    
+    
+    <footer class="end-delivery">
+        <div class="end-delivery-container">
+            <p>© Copyright 2022 DBP5A. Todos los derechos reservados.</p>
+            <small> Elaborador con por <a href="">Alexander Vicente</a></small>
+
+        </div>
+
+    </footer>
+
+    <script src="{% static 'javascript/stars.js' %}"></script>
+    <script src="{% static 'javascript/script.js' %}"></script>
+    <script src="{% static 'javascript/jquery-3.3.1.slim.min.js' %}" type="b2c11c9b30add9f90f03eafa-text/javascript"></script>
+    <script src="{% static 'javascript/bootstrap.bundle.min.js' %}" type="b2c11c9b30add9f90f03eafa-text/javascript"></script>
+    <script src="{% static 'javascript/rocket-loader.min.js' %}"data-cf-settings="b2c11c9b30add9f90f03eafa-|49" defer=""></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+</html>

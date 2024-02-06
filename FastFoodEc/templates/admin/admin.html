@@ -1,0 +1,21 @@
+
+    {%extends 'admin/nav_bar_admin.html' %}
+    {%block content %} 
+        
+    <table>
+        <tr>
+            <th>Producto </th>
+            <th>Categoria</th>
+            <th>Local</th>
+        </tr>
+        {% for producto in productos%}
+        <tr>
+            <td>{{producto.nombre}}</td>
+            <td>{{producto.categoria.nombre}}</td>
+            <td>{{producto.categoria.local.nombre}}</td>
+
+        </tr>
+    
+        {% endfor %}
+    </table>
+    {%endblock%}

@@ -1,0 +1,91 @@
+
+{%extends 'delivery/nav_bar_delivery.html' %}
+
+{%block content %} 
+
+<section class="section">
+    
+<div class="content-section">
+
+    <div class="content-section-banner">
+        <div class="banner">
+            <h1>ENCUENTRA LOS MEJORES</h1>
+            <h1>SABORES DE <span>ECUADOR </span></h1>
+            <h5>DESCUBRE LO QUE TENEMOS PREPARADO PARA TI</h5>
+        </div>
+        <div class="content-section-img">
+            
+            <img src="https://dam.cocinafacil.com.mx/wp-content/uploads/2020/04/comida-china-tipica.jpg" width="400px" height="200px">
+        </div>
+    </div>
+    <!-- 
+    <div class="content-section-search" >
+        <div class="search-section">
+            <div class="search-section-container">
+                <div class="search-section-container-option" >
+                    <select name="" id="" class="select-option">
+                        <option value="0">Escoja una opcion</option>
+                        <option value="1">BEBIDAS</option>
+                        <option value="1">GASESOSAS</option>
+                        
+                    </select>
+                </div>
+                <div class="search-section-container-input" >
+                    <input type="search" class="search-input" placeholder="Buscar.. ">
+                </div>
+                
+            </div>
+        
+        </div>
+    </div>
+     -->
+</div>
+
+
+
+</section>
+
+
+<section class="section-resturantes">
+<div class="section-resturantes-container">
+   <div class="section-resturantes-container-tittle">
+            <h1 class="tittle-section-restaurant"> <b>Locales Disponibles </b> </h1>
+            <h5> Escoge los mejores lugares para encontrar tu comida preferida.</h5>
+   </div>
+
+   <div class="container-restaurant">
+        <div class="item-list-restaurant ">
+                {% for local in locales %}
+            <div class="list-card">
+                    <div class="list-card-image">     
+                        <a href="detail/{{local.id}}">
+                        <img src="{{local.imagen}}" class="item-img">
+                        </a>
+                    </div>
+                        <div class="p-3 ">
+                            <div class="list-card-body" >
+                                        <h6 class="mb-1"><a href="detail.html" class="text-black">{{local.nombre}}</a></h6>
+                                        <p class="text-gray mb-3">{{local.descripcion}}</p>            
+                                            <div class="stars-outer" >
+                                                <p id="puntaje" class="puntaje">{{local.puntaje}}</p>
+                                                <div class="local_{{local.id}} stars-inner"></div>
+                                            </div>
+                                        {% if local.costoEnvio > 0 %}
+                                        <p class="time"><span class="bg-light "><i class="fa-solid fa-clock"></i> {{local.tiempo_entrega}} min</span> <span class="float-right"><i class="fa-solid fa-truck-moving"></i> Envío ${{local.costoEnvio}} </span></p>
+                                        {% else %}
+                                        <p class="time"><span class="bg-light "><i class="fa-solid fa-clock"></i> {{local.tiempo_entrega}} min</span> <span class="float-right"><i class="fa-solid fa-truck-moving"></i> Envío Gratis </span></p>
+                                        {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>   
+</div>
+
+</section>
+
+{%endblock%}
+

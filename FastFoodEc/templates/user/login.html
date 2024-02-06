@@ -1,0 +1,58 @@
+{% load static %}
+{% load widget_tweaks %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/style-login.css' %}">
+    <script src="https://kit.fontawesome.com/71b6c393b8.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+	<nav>
+		<a href="{% url 'index' %}"><img src="{% static 'img/logo.png' %}" class="logo"></a>
+	</nav>
+<div class="container" id="container">
+	
+	<div class="form-container sign-in-container">
+		<form action="" method="post">
+			{%csrf_token%} 
+			<h1>Iniciar sesión</h1>
+
+			<span>o usa tu cuenta</span>
+			{% if form.errors %}
+            <p class="error">Tu usuario o contraseña son incorrectos, intenta nuevamente.</p>
+            {% endif %}
+            
+            {% if next %}
+                {% if user.is_authenticated %}
+                <p>No tienes acceso a esta página</p>
+                {% else %}
+                <p class="error">Por favor inicie sesion primero.</p>
+                {% endif %}
+            {% endif %}
+			
+				{% render_field form.username placeholder=form.username.label class+="form-input"  %}
+				{% render_field form.password placeholder=form.password.label class+="form-input"  %}
+							  
+			<button type="submit">Iniciar Sesión</button>
+		</form>
+			
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-right">
+				<h1>Bienvenido!</h1>
+				<p class="p">Aun no tienes una cuenta? Pues que esperas empieza a disfrutar de todo lo que tenemos preparado para ti</p>
+				<a href="{%url 'register' %}"><button class="ghost" id="signUp">Registrarse</button></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+</body>
+</html>

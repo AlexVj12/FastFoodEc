@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://kit.fontawesome.com/71b6c393b8.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+    <title>Panel de Administración</title>
+</head>
+<body class="body-admin" >
+    <header class="Header" >
+    <div class="search-div">
+        <input type="search" name="" class="search-input" placeholder="Buscar...">
+    </div>
+    <div class="items-div">
+        <div class="user">
+            <div class="user-data">
+                <label for="usuario"> Alexander Vicente </label>
+                <label for="tipo"> administrador</label>
+            </div>
+            <div class="user-icon">
+                <img src="https://facit-modern.omtanke.studio/static/media/wanna3.7c00c72df25239740fe7.webp" width="40px" height="40px" style="border-radius: 50px">
+            </div>
+        </div>
+    </div>
+    </header>
+
+    <div class="app">
+        <aside class="aside" style="left: 0px;">
+            <div class="aside-head">
+                <div class="brand">
+                    <div class="brand-logo">
+                        <div class="brand-tittle">
+
+                        </div>
+
+                    </div>
+                    <button class="btn brand-aside-toggle"> 
+                        <svg xmlns="http://www.w3.org/2000/svg" height="70px" viewBox="0 0 24 24" width="30px" class="svg-icon--material" >
+                            <path d="M0 0h24v24H0V0z" fill="none" opacity="0.87"></path>
+                            <path d="M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6-1.41 1.41zM16 6h2v12h-2V6z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="aside-body">
+                <nav>
+                    <ul class="navigation">
+                        <li class="item-list"><a href="{% url 'local' %}"> <i class="fa-solid fa-shop icon-nav"></i></li>
+                        <li class="item-list"><a href=""><i class="fa-solid fa-bell"></i></a></li>
+                        <li class="item-list"> <a href=""> <i class="fa-solid fa-battery-half icon-nav"></i></a></li>
+                        <li class="item-list"> <a href=""><i class="fa-solid fa-battery-half icon-nav"></i></a></li>
+                        
+                    </ul>
+                </nav>
+
+            </div>
+            <div class="icon-user">
+                <a href="logout"><img  class= "img-user" src="https://facit-modern.omtanke.studio/static/media/wanna1.6be5d23290c24ab23a73.webp" height="35px" width="35px"></a>
+
+            </div>
+        </aside>
+
+    </div>
+      
+    {%block content %} 
+        
+    {%endblock%}
+
+
+    <script src="{% static 'javascript/script.js' %}"></script>
+</body>
+</html>

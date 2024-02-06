@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/71b6c393b8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/style-login.css' %}">
+    
+</head>
+<body>
+
+    <div class="container-2" id="container-2">
+        <div class="form-container-2 sign-in-container-2">
+            <form action="" method="post">{%csrf_token%}
+                <h1>Completar Registro</h1>
+                <span>o usa tu cuenta</span>
+                <img class="img-account" id="img-profile-account" src="https://clubsuizomadrid.org/assets/images/juntadirectiva/user-gray.png" >
+                <input type="text" name= "usuario_id"value="{{idUser}}" class="usuario-id">
+
+                    {{formC.as_p}}
+
+                <button type="submit">Registrarse</button>
+            </form>
+        </div>
+        <div class="overlay-container-2">
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-right">
+                    <div class="mapa" id="map">
+
+    
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTPX0CAgsXtqabYxgQUaP7CYJA63_fLmc&callback=initMap&v=weekly"
+    defer
+></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="{% static 'javascript/script.js' %}"></script>
+
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+</html>

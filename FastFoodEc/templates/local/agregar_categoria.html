@@ -1,0 +1,36 @@
+
+    {%extends 'admin/nav_bar_admin.html' %}
+    {%block content %}
+
+    <div class="root"  >
+        <form action="." class="form-register" method="post">
+            <div class="form-register__header">
+                <ul class="progressbar">
+                    <li class="progressbar__option active">paso 1</li>
+                    <li class="progressbar__option active">paso 2</li>
+                    <li class="progressbar__option">paso 3</li>
+                </ul>
+            </div>
+            <div class="form-register__body">
+                <div class="step active  " id="step-2">
+                    <div class="step__header">
+                        <h2 class="step__title">Categorias</small></h2>
+                    </div>
+                    <div class="step__body">
+                        <div class="form-register-local">
+                            <form  method="post" id="form-local">{%csrf_token%}
+                                {{formCategoria.as_p}}
+                                <div class="step__footer">
+                                    <button type="submit" class="step__button" >Finalizar</button>
+                                </div>                           
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+
+    {%endblock%}
+    

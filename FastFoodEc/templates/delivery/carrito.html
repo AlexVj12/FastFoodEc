@@ -1,0 +1,105 @@
+{%extends 'delivery/nav_bar_delivery.html' %}
+
+{%block content%} 
+<div class="content-carrito">
+  <div class="modal fade" id="delete-address-modal" tabindex="-1" role="dialog" aria-labelledby="delete-address" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+    <h5 class="modal-title" id="delete-address">Pagar</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    <div class="modal-body">
+      <div class="pago">
+        <div class="pago-titulo">
+          <h3 class="titulo-pago">Añadir Pago</h3>
+          <img class="payment-cardimg"
+          src="//my-assets.netlify.com/codepen/dailyui-002/img_cards.svg">
+        </div>
+        <div class="datos-pago">
+          <label for="" class="label-pago"> Nombre del titular de la tarjeta</label>
+          <input type="text" class="input-pago" placeholder="Nombre del titular de la tarjeta">
+          <label for="" class="label-pago"> Número de la tarjeta</label>
+          <input type="text" class="input-pago" placeholder="1234 - 5678 - 9876 - 5432" >
+        </div>
+
+        <div class="datos-fecha">
+
+         <div class="datos-fecha-pago">
+          <label for="" class="label-pago">Año de Expiración</label>
+          <input type="text"  class="input-tarjeta" placeholder="MM/YY">
+         </div>
+
+         <div class="datos-cvc">
+          <label for="" class="label-pago"> CVC </label>
+          <input type="text"  class="input-tarjeta"placeholder="XXX">
+         </div>
+          
+
+        </div>
+
+
+
+      </div>
+      
+    
+    </div>
+    <div class="modal-footer">
+    <button type="button" class="btn d-flex w-50 text-center justify-content-center btn-outline-primary" data-dismiss="modal">CANCELAR
+    </button><button type="button" onclick="pago()" class="btn d-flex w-50 text-center justify-content-center btn-primary"> <a href="{% url 'pedido' %}"> PAGAR {{total_carrito}}</a></button>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="content-carrito-productos" role="alert">
+        <table class="tabla ">
+          <thead>
+            <tr>
+              <th scope="row" colspan="3" class="text-center"> <i class="fa-solid fa-cart-shopping"></i> CARRITO</th>
+            </tr>
+            <tr>
+              <th scope="col">NOMBRE</th>
+              <th scope="col">PRECIO</th>
+              <th scope="col">CANTIDAD</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% if request.session.carrito.items %}
+          {% for key, value in request.session.carrito.items %}
+            <tr>
+              <td><img src="{{value.imagen}}"  class="img-cart" alt="" width="50" height="50"> {{value.nombre}}</td>
+              <td>$ {{value.total}}</td>
+              <td> <a href="{% url 'agregar_producto' value.producto_id %}" ><button class="btn-cart"> + </button></a>
+                x {{value.cantidad}}
+                <a href="{% url 'disminuir_producto' value.producto_id %}" ><button class="btn-cart"> - </button></a>
+              </td>
+            </tr>
+          {% endfor %}
+          {% else %}
+          <tr>
+              <td colspan="3">
+                  <div class="alert alert-danger text-center"> Sin Productos </div>
+              </td>
+          </tr>
+          {% endif %}
+            <tr>
+              <th scope="row">Total:</th>
+              <td > $ {{total_carrito}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <hr>
+        {% if request.session.carrito.items %}
+        <div class="row text-center">
+            <div class="div-btn-quitar"><a href="{% url 'vaciar_carrito' %}"><button  class="btn-quitar " > Quitar Todo</button></a></div>
+            <div class="div-btn-pagar"><a class="text-danger" data-toggle="modal" data-target="#delete-address-modal" href="#" href="" ><button class="btn-pagar " >Pagar $ {{total_carrito}}</button></a></div>
+            
+        </div>
+        {% endif %}
+        </div>
+
+    
+</div>
+{%endblock%}

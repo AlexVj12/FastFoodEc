@@ -1,0 +1,41 @@
+
+    {%extends 'admin/nav_bar_admin.html' %}
+    {%block content %} 
+    <a href="agregar"><button class="btnAgregarLocal">+</button></a>
+        <div class="locales">
+            {% for local in locales %}
+                <div class="content-local">
+                        <div>
+                            <img src="{{local.imagen}}"  width="175" height="150">
+                        </div>
+                        <div>
+                            <label for="nombre-local"> {{local.nombre}}</label>
+                        </div>
+                        <div class="costo">
+                            <div>
+                                <i class="fa-solid fa-circle-dollar"></i>
+                            </div>
+                            <div>
+                                <label for="costo">Costo Envio : {{local.costoEnvio}} </label>
+                            </div>
+                        </div>
+                        <div class="tiempo">
+                            <div>
+    
+                            </div>
+                            <div>
+                                <label for="tiempo">Tiempo de envio : {{local.tiempo_entrega}} </label>
+                            </div>
+                        </div>
+                        <a href="view/{{local.id }}"> <button>MOSTRAR</button></a>
+                        <a href=""> <button>EDITAR</button></a>
+                        <a href="eliminar/{{local.id}}"> <button>ELIMINAR</button></a>
+
+                </div>
+            {% endfor %}
+
+        </div>
+
+
+
+    {%endblock%}

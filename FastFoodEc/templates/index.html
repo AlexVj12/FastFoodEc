@@ -1,0 +1,128 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/style-delivery.css' %}">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <title>Food Fast Ecuador</title>
+</head>
+<body >
+    <nav class="nav-delivery">
+        <div class="content-nav">
+            <div class="content-nav-logo">
+                <a href=" {% url 'index' %}"><img src="{% static 'img/logo.png' %}" class="logo"></a>
+            </div>
+        </div>
+        <div class="content-nav-menu">
+
+            <ul class="content-nav-menu-delivery-2">
+                <li class="item-nav-index"><a class = "item" href="{%url 'login' %}"><i class="fas fa-shopping-basket"></i>Iniciar Sesión/Registrarse </a></li>
+                
+            </ul>
+
+        </div>
+
+    </nav>
+
+    <div class="root-delivery" >
+        <div class=" content-delivery">
+            <div class="contentSlides">
+                <div class="slider">
+                    <div class="slides">
+                        <input type="radio" name="radio-btn" id="radio1">
+                        <input type="radio" name="radio-btn" id="radio2">
+                        <input type="radio" name="radio-btn" id="radio3">
+                        <input type="radio" name="radio-btn" id="radio4">
+                        <input type="radio" name="radio-btn" id="radio5">
+            
+                        <div class="slide first">
+                            <div class="content1">
+                                <div class = "img-div"  id = imagen>
+                                        <div id = "info">
+                                            <a id = "linea" href="{%url 'delivery_view' %} "><button class="item-btn" type="button">Empieza Ya</button></a> 
+                                            <h1 id = "text-c">Ofertas Especiales todos los días</h1>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <div class="content2">
+                                <div class = "img-div" id = imagen2>
+                                    <div id = "info">
+                                        <a id = "linea2" href="{%url 'delivery_view' %} "><button class="item-btn" type="button">Empieza Ya</button></a> 
+                                        <h1 id = "text-v">Encuentra los mejores platos para ti</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <div class="content3">
+                                <div id = imagen3>
+                                    <div id = "info">
+                                        <a id = "linea3" href="{%url 'delivery_view' %} "><button class="item-btn" type="button">Empieza Ya</button></a> 
+                                        <h1 id = "text-L">Todo al alcance de tus manos</h1>
+                                    </div>
+                                </div>
+                            </div>    
+                        </div>
+                        <div class="slide">
+                            <div class="content4">
+                                <div class = "img-div"  id = imagen4>
+                                        <div id = "info">
+                                            <a id = "linea4" href="{%url 'delivery_view' %} "><button class="item-btn" type="button">Empieza Ya</button></a> 
+                                            <h1 id = "text-h"> En cualquier momento y lugar</h1>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <div class="content5">
+                                <div class = "img-div"  id = imagen5>
+                                        <div id = "info">
+                                            <a id = "linea5" href="{%url 'delivery_view' %} "><button class="item-btn" type="button">Empieza Ya</button></a> 
+                                            <h1 id = "text-m"> Empieza a disfrutar ya</h1>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="navigation-auto">
+                            <div class="auto-btn1"></div>
+                            <div class="auto-btn2"></div>
+                            <div class="auto-btn3"></div>
+                            <div class="auto-btn4"></div>
+                            <div class="auto-btn5"></div>
+            
+                        </div>
+            
+            
+                        <div class="navigation-manual">
+                            <label for="radio1" class="manual-btn"></label>
+                            <label for="radio2" class="manual-btn"></label>
+                            <label for="radio3" class="manual-btn"></label>
+                            <label for="radio4" class="manual-btn"></label>
+                            <label for="radio5" class="manual-btn"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div>
+        </div>
+
+    </div>
+
+    <footer class="end-delivery">
+        <div class="end-delivery-container">
+            <p>© Copyright 2022 DBP5A. Todos los derechos reservados.</p>
+            <small> Elaborado por <a href="">Alexander Vicente</a></small>
+
+        </div>
+    </footer>
+    <script src="{% static 'javascript/script.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,172 @@
+{%extends 'delivery/nav_bar_delivery.html' %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'polls/osahan' %}">
+{%block content%} 
+<div class="modal fade" id="delete-address-modal" tabindex="-1" role="dialog" aria-labelledby="delete-address" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+    <h5 class="modal-title" id="delete-address">Editar Perfil</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    <div class="modal-body">
+    <div class="edit-profile" id="edit-profile" >
+        <form action="/update/{{cliente.id}}" method="post"  > {%csrf_token%} 
+            <img class="img-account" id="img-profile-account" src="https://clubsuizomadrid.org/assets/images/juntadirectiva/user-gray.png"  >
+                    <p>
+                    <input class="input-form-c" id="url-img-profile" name="imagen"  placeholder="Foto de Perfil" required="" type="text" value="{{cliente.imagen}}" onchange="cargarImagen()">
+                    </p>
+                    <p>
+                    <input class="input-form-c" id="id_nombres" name="nombres" placeholder="Nombres" required="" type="text" value="{{cliente.nombres}}">
+                    </p>
+                    <p>
+                    <input class="input-form-c" id="id_apellidos" name="apellidos" placeholder="Apellidos" required="" type="text" value="{{cliente.apellidos}}">
+                    </p>
+                    <p>
+                    <input class="input-form-c" id="id_telefono" name="telefono" placeholder="Telefono" required="" type="text" value="{{cliente.telefono}}">
+                    </p>
+                    <p>
+                    <input class="input-form-c" id="id_ciudad" name="ciudad" placeholder="Ciudad" required="" type="text" value="{{cliente.ciudad}}">
+                    </p>
+                    <p>
+                    <input class="input-form-c" id="id_direccion" name="direccion" placeholder="Dirección" required="" type="text" value="{{cliente.direccion}}">
+                    </p>
+                    <div class="modal-footer">
+                    <button class="btn d-flex w-50 text-center justify-content-center btn-outline-primary" data-dismiss="modal" type="button">CANCELAR
+                    </button><button class="btn d-flex w-50 text-center justify-content-center btn-primary" type="submit">  EDITAR</button>
+                    </div>
+        
+
+
+    </form>
+        
+    </div>
+
+    </div>
+
+    </div>
+    </div>
+    </div>
+
+<div class="modal fade" id="edit-profile-modal" tabindex="-1" role="dialog" aria-labelledby="edit-profile" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+    <div class="modal-content">
+    <div class="modal-body">
+    </div>
+    </div>
+    </div>
+    </div>
+    
+
+    <section class="section pt-4 pb-4 osahan-account-page">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-3">
+    <div class="osahan-account-page-left shadow-sm bg-white h-100">
+    <div class="border-bottom p-4">
+    <div class="osahan-user text-center">
+    <div class="osahan-user-media">
+    <img class="mb-3 rounded-pill shadow-sm mt-1 img-account" src="{{cliente.imagen}}" >
+    <div class="osahan-user-media-body">
+    <h6 class="mb-2">{{cliente.nombres}}</h6>
+    <p class="mb-1">+593 {{cliente.telefono}}</p>
+    <p><a href="" class="__cf_email__" >{{user.email}}</a></p>
+    <p class="mb-0 text-black font-weight-bold"><a class="text-primary mr-3" data-toggle="modal" data-target="#delete-address-modal" href="#"> EDITAR PERFIL</a></p>
+    </div>
+    </div>
+    </div>
+    </div>
+    <ul class="nav nav-tabs flex-column border-0 pt-4 pl-4 pb-4" id="myTab" role="tablist">
+    <li class="nav-item">
+    <a class="nav-link active" id="orders-tab" data-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="true"><i class="fa-solid fa-plate-wheat"></i>Pedidos</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" id="addresses-tab" data-toggle="tab" href="#addresses" role="tab" aria-controls="addresses" aria-selected="false"><i class="fa-solid fa-location-dot"></i>Direcciones</a>
+    </li>
+    </ul>
+    </div>
+    </div>
+    <div class="col-md-9">
+    <div class="osahan-account-page-right shadow-sm bg-white p-4 h-100">
+    <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="orders" role="tabpanel" aria-labelledby="orders-tab">
+    <h4 class="font-weight-bold mt-0 mb-4">Pedidos</h4>
+
+    {{producto.nombre}}
+    
+    {% if pedidos|length > 0 %}
+    {% for pedido in pedidos %}
+    <div class="bg-white card mb-4 order-list shadow-sm">
+
+        <div class="gold-members p-4">
+        <a href="#">
+        <div class="media">
+        <img class="mr-4" src="{% static 'img/logo.png' %}" width="80" height="50">
+        <div class="media-body">
+        <span class="float-right text-info">{{pedido.fecha_pedido}} <i class="fa-solid fa-circle-check"></i></span>
+        <h6 class="mb-2">
+        <a href="" class="text-black">Fast Food Ecuador
+        </a></h6>
+        <p class="text-gray mb-1"><i class="fa-solid fa-location-arrow"></i>{{pedido.direccion}}
+        </p>
+        <p class="text-gray mb-3"><i class="fa-solid fa-clipboard-list"></i>ORDEN #{{pedido.id}} <i class="fa-solid fa-clock"></i>{{pedido.fecha_pedido}}</p>
+        <p class="text-dark">  {% for p in pedido.producto.all %} {{p.nombre}} x {{pedido.producto.count}}, {% endfor %}
+        </p>
+        <hr>
+
+        <p class="mb-0 text-black text-primary pt-2"><span class="text-black font-weight-bold"> Total:</span> $ {{pedido.total}}
+        </p>
+        </div>
+        </div>
+        </a>
+        </div>
+    </div>
+        {% endfor %}
+
+    {% else %}
+       
+        <img src="https://s3-vultec-pe.s3-us-west-2.amazonaws.com/media/uploads/froala_editor/images/carritovacio.png" width="400" height="400" class="img-nopedido">
+        <h5 class="no-pedido"> Vaya al parecer aún has realizado ningún pedido</h5>
+    {% endif %}
+
+    
+    
+
+    </div>
+    <div class="tab-pane fade" id="addresses" role="tabpanel" aria-labelledby="addresses-tab">
+    <h4 class="font-weight-bold mt-0 mb-4">Direcciones</h4>
+    <div class="direciones">
+        <div class="col-md-6">
+            <div class="bg-white card addresses-item shadow-sm">
+                <div class="gold-members p-4">
+                    <div class="media">
+                    <div class="mr-3"></div>
+                    <div class="media-body">
+                    <h6 class="mb-1"><i class="fa-solid fa-location-dot"></i>Casa</h6>
+                    <p>{{cliente.direccion}}
+                    </p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    </div>
+    
+    </div>
+    
+    <script src="{% static 'javascript/script.js' %}"></script>
+    {%endblock%}
+    </section>
+    </div>

@@ -1,0 +1,31 @@
+{%extends 'admin/nav_bar_admin.html' %}
+{%block content %} 
+
+<div class="local">
+<div class="info-local">
+    <h1 class="tittle-data-local"> Datos Informativos</h1>
+    <label for="nombre">{{local.nombre}}</label>
+
+</div>
+
+<div class="horario-local info-local">
+    <h1 class="tittle-data-local"> Horarios </h1>
+
+</div>
+<div class="categorias-local info-local">
+    <div class="cabecera-categorias">
+        <div class="cabecera-tittle"> 
+            <h1 class="tittle-data-local"> Categorias</h1>
+        </div>
+        <div class="cabecera-button">
+            <a href=""><button>Nueva Categoria</button></a>
+        </div>
+    </div>
+    <label for="categoria">{{categorias.nombre}}</label>
+    <label for="categoria">{{categorias.descripcion}}</label>
+
+</div>
+
+</div>
+
+{%endblock%}

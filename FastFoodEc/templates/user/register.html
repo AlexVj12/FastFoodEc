@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/71b6c393b8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/style-login.css' %}">
+</head>
+<body>
+
+    <div class="container" id="container">
+        <div class="form-container sign-in-container">
+            <form action="" method="post">
+                {%csrf_token%}
+                <h1>Registrarse</h1>
+                <span>o usa tu cuenta</span>
+
+                    {{form.as_p}}
+
+                <button type="submit">Registrarse</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-right">
+                    <h1>Ya tienes una cuenta?</h1>
+                    <p class="p">Inicia sesión y descubre un mundo lleno de sabores</p>
+                    <a href="{%url 'login' %}"><button class="ghost" id="signIn">Iniciar Sesión</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
