@@ -15,7 +15,7 @@
     <div class="modal-body">
     <div class="edit-profile" id="edit-profile" >
         <form action="/update/{{cliente.id}}" method="post"  > {%csrf_token%} 
-            <img class="img-account" id="img-profile-account" src="https://clubsuizomadrid.org/assets/images/juntadirectiva/user-gray.png"  >
+            <img class="img-account" id="img-profile-account" alt="profile" src="https://clubsuizomadrid.org/assets/images/juntadirectiva/user-gray.png"  >
                     <p>
                     <input class="input-form-c" id="url-img-profile" name="imagen"  placeholder="Foto de Perfil" required="" type="text" value="{{cliente.imagen}}" onchange="cargarImagen()">
                     </p>
@@ -69,7 +69,7 @@
     <div class="border-bottom p-4">
     <div class="osahan-user text-center">
     <div class="osahan-user-media">
-    <img class="mb-3 rounded-pill shadow-sm mt-1 img-account" src="{{cliente.imagen}}" >
+    <img alt="imgclient" class="mb-3 rounded-pill shadow-sm mt-1 img-account" src="{{cliente.imagen}}" >
     <div class="osahan-user-media-body">
     <h6 class="mb-2">{{cliente.nombres}}</h6>
     <p class="mb-1">+593 {{cliente.telefono}}</p>
@@ -104,7 +104,7 @@
         <div class="gold-members p-4">
         <a href="#">
         <div class="media">
-        <img class="mr-4" src="{% static 'img/logo.png' %}" width="80" height="50">
+        <img class="mr-4" src="{% static 'img/logo.png' %}" width="80" height="50" alt="logo">
         <div class="media-body">
         <span class="float-right text-info">{{pedido.fecha_pedido}} <i class="fa-solid fa-circle-check"></i></span>
         <h6 class="mb-2">
@@ -128,7 +128,7 @@
 
     {% else %}
        
-        <img src="https://s3-vultec-pe.s3-us-west-2.amazonaws.com/media/uploads/froala_editor/images/carritovacio.png" width="400" height="400" class="img-nopedido">
+        <img src="https://s3-vultec-pe.s3-us-west-2.amazonaws.com/media/uploads/froala_editor/images/carritovacio.png" width="400" height="400" class="img-nopedido" alt="no-pedido">
         <h5 class="no-pedido"> Vaya al parecer aún has realizado ningún pedido</h5>
     {% endif %}
 

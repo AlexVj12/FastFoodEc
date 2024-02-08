@@ -2,10 +2,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Register Complete</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/71b6c393b8.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/71b6c393b8.js" integrity="dbf5b866a1949a0ef29f92aa2462576590ceba2b9cfa6d1746412ccf86e9dd3e56ce30f609998c629a61444b049ee2c9" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'polls/style-login.css' %}">
     
 </head>
@@ -16,7 +17,7 @@
             <form action="" method="post">{%csrf_token%}
                 <h1>Completar Registro</h1>
                 <span>o usa tu cuenta</span>
-                <img class="img-account" id="img-profile-account" src="https://clubsuizomadrid.org/assets/images/juntadirectiva/user-gray.png" >
+                <img class="img-account" id="img-profile-account" src="https://clubsuizomadrid.org/assets/images/juntadirectiva/user-gray.png" alt="profile" >
                 <input type="text" name= "usuario_id"value="{{idUser}}" class="usuario-id">
 
                     {{formC.as_p}}
@@ -40,14 +41,11 @@
 
 
 </body>
-<script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTPX0CAgsXtqabYxgQUaP7CYJA63_fLmc&callback=initMap&v=weekly"
-    defer
-></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap&v=weekly" defer integrity="1efde01c15832d0ad10fa7ec9eace17bfa2baa4944e30621664a0ec85ee79a756b241e46a53dfa71085c408cdfa1f7cb" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="235793ea09259ed67adbcdd06e3924013ccb5c6911731fca5ff2d72c9991e7ff71ecdb0aa891e5b051aba4ea817548d2" crossorigin="anonymous"></script>
 <script src="{% static 'javascript/script.js' %}"></script>
 
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="d9262d72b48d218346a9f3120c464334b065eef0602f3bc1c5f004a5e8694d29c68dcf55fd313a995335ea6fa8a97f6e" crossorigin="anonymous"></script>
 
 </html>

@@ -1,5 +1,5 @@
-var counter = 1;
-var imagen = document.getElementById("url-img-profile");
+let counter = 1;
+let imagen = document.getElementById("url-img-profile");
 setInterval(function(){
   document.getElementById('radio' + counter).checked = true;
   counter++;
@@ -11,7 +11,7 @@ setInterval(function(){
 
 window.onload = function () {
 
-  var logo = document.getElementById('img-profile-account');
+  let logo = document.getElementById('img-profile-account');
 
   logo.onload = function () {
       
@@ -24,19 +24,28 @@ window.onload = function () {
 
 
 // Initialize and add the map
+function createMap(elementId, options) {
+  return new google.maps.Map(document.getElementById(elementId), options);
+}
+
+function createMarker(map, position) {
+  return new google.maps.Marker({
+    position: position,
+    map: map,
+  });
+}
+
 function initMap() {
   // The location of Uluru
   const uluru = { lat: -2.6490671, lng: -81.6945067 };
+  
   // The map, centered at Uluru
-  const map = new google.maps.Map(document.getElementById("map"), {
+  const map = createMap("map", {
     zoom: 4,
     center: uluru,
   });
-  // The marker, positioned at Uluru
-  const marker = new google.maps.Marker({
-    position: uluru,
-    map: map,
-  });
+  
+  createMarker(map, uluru);
 }
 
 
@@ -48,7 +57,7 @@ function initMap() {
   //console.log(puntaje.innerHTML)
 
   const starTotal = 5;
-  var numero = parseFloat(puntaje[0].innerHTML)
+  let  numero = parseFloat(puntaje[0].innerHTML)
   const starPercentage = (numero / starTotal) * 100;
   const starPercentageRounded = `${(Math.round(starPercentage / 10) * 10)}%`;
   document.querySelector(`.${all[0].className}`).style.width = starPercentageRounded; 
@@ -56,7 +65,7 @@ function initMap() {
 
 
 function cargarImagen(){
-    var img = document.getElementById("img-profile-account");
+    let img = document.getElementById("img-profile-account");
     document.getElementById("img-profile-account").src= imagen.value;
 
     img.addEventListener('error', (event) => {

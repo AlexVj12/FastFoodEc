@@ -1,6 +1,6 @@
 
 from rest_framework import serializers
-from FastFoodEc.models import *
+from FastFoodEc.models import Local,Categoria,Producto,Cliente,Pedido
 from django.contrib.auth.models import User
 
 class LocalSerializer(serializers.HyperlinkedModelSerializer):
@@ -32,8 +32,6 @@ class ClienteSerializer(serializers.HyperlinkedModelSerializer):
 class PedidoSerializer(serializers.HyperlinkedModelSerializer):
     producto = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
     user = serializers.PrimaryKeyRelatedField(many=False, read_only=True)
-    id = serializers.ReadOnlyField()
-    #producto = ProductoSerializer(many=True, read_only=True)
     class Meta:
         model = Pedido
         fields = '__all__'

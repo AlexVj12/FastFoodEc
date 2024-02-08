@@ -1,9 +1,9 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import *
+from .models import Local,Categoria,Cliente
 
-class Local_form(forms.ModelForm):
+class local_form(forms.ModelForm):
 
     nombre = forms.CharField(widget = forms.TextInput(
         attrs={
@@ -58,7 +58,7 @@ class Local_form(forms.ModelForm):
 
     class Meta:
         model = Local
-        fields ='__all__'
+        fields = ['nombre','imagen','puntaje','costoEnvio','tiempo_entrega','horario']
 
 
 class categoria_form(forms.ModelForm):
@@ -70,7 +70,7 @@ class categoria_form(forms.ModelForm):
     ))
     class Meta:
         model = Categoria
-        fields ='__all__'
+        fields = ['nombre']
 
 
 class cliente_form(forms.ModelForm):

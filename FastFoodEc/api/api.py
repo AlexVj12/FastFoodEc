@@ -1,7 +1,7 @@
 from rest_framework import  viewsets
-from FastFoodEc.models import Local,Categoria,Producto,Cliente
+from FastFoodEc.models import Local,Categoria,Producto,Cliente,Pedido
 from django.contrib.auth.models import User
-from FastFoodEc.api.serializers import *
+from FastFoodEc.api.serializers import LocalSerializer,CategoriaSerializer,ProductoSerializer,UserSerializer,ClienteSerializer,PedidoSerializer
 from rest_framework.permissions import AllowAny
 
 class LocalAPIView(viewsets.ModelViewSet):

@@ -6,9 +6,9 @@ let puntaje = document.querySelectorAll('.puntaje');
 //console.log(puntaje)
 
 const starTotal = 5;
-for(var i = 0; i <all.length; i++){
+for(let i = 0; i <all.length; i++){
 
-   var numero = parseFloat(puntaje[i].innerHTML)
+   let numero = parseFloat(puntaje[i].innerHTML)
    const starPercentage = (numero / starTotal) * 100;
    const starPercentageRounded = `${(Math.round(starPercentage / 10) * 10)}%`;
 

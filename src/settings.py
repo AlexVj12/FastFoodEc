@@ -9,18 +9,23 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+import os
+from dotenv import load_dotenv
 from pathlib import Path
 from django.urls import reverse_lazy
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+dotenv_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env')
+if os.path.exists(dotenv_path):
+    load_dotenv(dotenv_path)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-n+#1+_zkpe3&&si140vlx9&-4!bsxu_mn@oywik7g7$d4xjdwt'
+SECRET_KEY = os.environ.get('SECRET_KEY') 
+GOOGLE_MAPS_API_KEY = os.getenv('GOOGLE_MAPS_API_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -48,7 +53,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://fastfoodec.onrender.com"
 ]
 
-ALLOWED_HOSTS = ['fastfoodec.azurewebsites.net', 'fastfoodec.onrender.com']
+ALLOWED_HOSTS = ['fastfoodec.azurewebsites.net', 'fastfoodec.onrender.com', 'localhost']
 
 REST_FRAMEWORK = {
         'DEFAULT_PERMISSION_CLASSES': [
@@ -61,15 +66,6 @@ REST_FRAMEWORK = {
             
         )
 }
-#REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    #'DEFAULT_PERMISSION_CLASSES': [
-   #     'rest_framework.permissions.IsAuthenticated',
-   #     'rest_framework.permissions.IsAdminUser',
-        
-   ## ]
-#}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -114,27 +110,6 @@ DATABASES = {
     }
 }
 
-# DATABASES = {
-#      'default': {
-#          'ENGINE': 'django.db.backends.mysql',
-#          'NAME': 'fastfood_db',
-#          'USER': 'alex',
-#          'PASSWORD': '200212',
-#          'HOST':'host.docker.internal',
-#          'PORT': '3306'
-#      }
-#  }
-
-# DATABASES = {
-#      'default': {
-#          'ENGINE': 'django.db.backends.mysql',
-#          'NAME': 'fastfood_db',
-#          'USER': 'root',
-#          'PASSWORD': '',
-#          'HOST':'localhost',
-#          'PORT': '3306'
-#      }
-#  }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -172,7 +147,8 @@ LOGOUT_REDIRECT_URL = reverse_lazy('login')
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

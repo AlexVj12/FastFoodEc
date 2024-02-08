@@ -1,7 +1,7 @@
 from multiprocessing.connection import Client
 from django.contrib import admin
 
-from. models import *
+from. models import Local,Producto,Categoria,Cliente,Pedido
 
 
 admin.site.register(Local)

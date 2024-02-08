@@ -1,0 +1,6 @@
+projectKey=FastFoodEc
+serverUrl=http://localhost:9000
+serverVersion=10.4.0.87286
+dashboardUrl=http://localhost:9000/dashboard?id=FastFoodEc
+ceTaskId=87860dea-9643-4988-afdc-7be50b22fdae
+ceTaskUrl=http://localhost:9000/api/ce/task?id=87860dea-9643-4988-afdc-7be50b22fdae

@@ -1,11 +1,9 @@
 
-
-body{
+body {
     height: 100%;
     padding: 0px;
     margin: 0px;
-    font-family: 'Poppins';
-    
+    font-family: 'Poppins', sans-serif; /* Added sans-serif as a fallback */
 }
 nav{
     margin-top: 20px;
@@ -23,7 +21,7 @@ a{
 
 
 ul{
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif; /* Added sans-serif as a fallback */
     list-style: none;
 }
 
@@ -152,11 +150,6 @@ span{
     margin-left: auto;
     text-align: center;
 }
-p{
-    font-size: 13px;
-    color: #7a7e8a;
-    margin-bottom: 0.2px;
-}
 
 
 footer{
@@ -204,15 +197,6 @@ i{
     display: none;
 }
 
-.list-card{
-    color: #212529;
-    font-size: 13px;
-    font-weight: 500;
-    line-height: 19.5px;
-    background-color: white;
-
-    
-}
 
 .list-card-2{
     width: 238px;
@@ -245,6 +229,7 @@ i{
 p{
     font-size: 13px;
     color: #7a7e8a;
+    margin-bottom: 0.2px;
 }
 .mb3{
     margin-bottom: 1rem!important;
@@ -261,9 +246,8 @@ p{
 .stars-outer {
     display: inline-block;
     position: relative;
-    font-family: FontAwesome;
-  }
-   
+    font-family: FontAwesome, sans-serif; /* Added sans-serif as a fallback */
+}
   .stars-outer::before {
     content: "\f006 \f006 \f006 \f006 \f006";
   }
@@ -291,19 +275,18 @@ p{
   }
 
 
-  .select-option{
+  .select-option {
     height: 40px;
     border-radius: 12px;
-    font-family: 'Poppins';
-  }
-
-.search-input{
+    font-family: 'Poppins', sans-serif; /* Added sans-serif as a fallback */
+}
+.search-input {
     height: 40px;
     width: 300px;
     margin-left: 10px;
     border: none;
     border-radius: 12px;
-    font-family: "Poppins";
+    font-family: "Poppins", sans-serif; /* Added sans-serif as a fallback */
 }
 
 img {
@@ -327,7 +310,7 @@ img {
 }
 
 .restaurant-detailed-header {
-    font-family: 'Poppins';
+    font-family: "Poppins", sans-serif; /* Added sans-serif as a fallback */
     bottom: 160px;
     left: 0;
     padding: 65px 0 17px;
@@ -343,7 +326,7 @@ img {
     margin-top: 40px;
     display: flex;
     background-color: #f0f4f7;
-    font-family: 'Poppins';
+    font-family: "Poppins", sans-serif; /* Added sans-serif as a fallback */
 }
 
 .content-category-local{
@@ -390,8 +373,12 @@ img {
 }
 
 .list-card  {
+    color: #212529;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 19.5px;
+    background-color: white;
     margin-left: 10px;
-
     
 }
 
@@ -406,7 +393,7 @@ img {
     font-style: bold;
     outline: none;
     border-radius: 10px;
-    font-family: 'Poppins';
+    font-family: "Poppins", sans-serif; /* Added sans-serif as a fallback */
     height: 40px;
     color: #fff;
     background: #e04451;
@@ -418,7 +405,10 @@ img {
     cursor: pointer;
 }
 .slides{
-    font-family: 'Poppins';
+    width: 500%;
+    height: 500px;
+    display: flex;
+    font-family: "Poppins", sans-serif; /* Added sans-serif as a fallback */
 }
 .img-div{
     transition: all 500ms ease-out;
@@ -642,11 +632,6 @@ div#imagen5:hover {
     overflow: hidden;
 }
 
-.slides{
-    width: 500%;
-    height: 500px;
-    display: flex;
-}
 
 .slides input{
     display: none;
@@ -766,7 +751,7 @@ div#imagen5:hover {
     font-weight: 600;
     color: #535665;
     font-size: 15px;
-    font-family: 'Poppins';
+    font-family: "Poppins", sans-serif; /* Added sans-serif as a fallback */
 }
 
 .osahan-account-page-left .nav-link.active {
@@ -774,10 +759,6 @@ div#imagen5:hover {
     color: #282c3f!important;
 }
 
-.img-account{
-    width: 90px;
-    height: 90px;
-}
 
 .content-carrito{
     margin-left: 125px;
@@ -812,7 +793,7 @@ div#imagen5:hover {
     margin-left: 100px;
     border-collapse: collapse;
     color: black;
-    font-family: 'Poppins';
+    font-family: "Poppins", sans-serif; /* Added sans-serif as a fallback */
     background-color: white;
 }
 
@@ -937,7 +918,7 @@ margin-bottom: 20px;
 .tabla-2{
     border-collapse: collapse;
     color: black;
-    font-family: 'Poppins';
+    font-family: "Poppins", sans-serif; /* Added sans-serif as a fallback */
     background-color: white;
     font-size: 15px;
 }
@@ -987,7 +968,7 @@ margin-bottom: 20px;
 }
 
 .pago{
-    font-family: 'Poppins';
+    font-family: "Poppins", sans-serif; /* Added sans-serif as a fallback */
 }
 .titulo-pago{
 font-size: 15px;

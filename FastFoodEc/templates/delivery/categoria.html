@@ -2,7 +2,7 @@
 {%block content %} 
 <section class="restaurant-detailed-banner">
     <div class="text-center">
-        <img class="img-fluid cover" src="https://askbootstrap.com/preview/osahan-eat/img/mall-dedicated-banner.png">
+        <img class="img-fluid cover" src="https://askbootstrap.com/preview/osahan-eat/img/mall-dedicated-banner.png" alt="banner">
     </div>
         <div class="restaurant-detailed-header">
             <div class="container">
@@ -54,7 +54,7 @@
             <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                 <div class="list-card-image">
                     <a href="#">
-                    <img src="{{productoC.imagen}}" class="img-fluid-2 item-img2">
+                    <img src="{{productoC.imagen}}" class="img-fluid-2 item-img2" alt="producto">
                     </a>
                 </div>
                 <div class="p-3 position-relative">
@@ -92,7 +92,7 @@
               {% if request.session.carrito.items %}
               {% for key, value in request.session.carrito.items %}
                 <tr>
-                  <td><img src="{{value.imagen}}"  class="img-cart-2" alt="" width="30" height="30"> {{value.nombre}}</td>
+                  <td><img src="{{value.imagen}}"  class="img-cart-2" alt="valor" width="30" height="30"> {{value.nombre}}</td>
                   <td>$ {{value.total}}</td>
                   <td> <a href="{% url 'agregar_producto' value.producto_id %}" ><button class="btn-cart-2"> + </button></a>
                     x {{value.cantidad}}
