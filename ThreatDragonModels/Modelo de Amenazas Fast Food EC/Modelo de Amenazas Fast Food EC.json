@@ -1,0 +1,16 @@
+{
+  "version": "2.1.3",
+  "summary": {
+    "title": "Modelo de Amenazas Fast Food EC",
+    "owner": "Alexander Vicente",
+    "description": "Sistema de pedidos de comida a domicilio, se usa django como backend y html, js, y css como frontend. Se usa una base de datos SQL ",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [],
+    "diagramTop": 0,
+    "reviewer": "Alexander Vicente",
+    "threatTop": 0
+  }
+}
