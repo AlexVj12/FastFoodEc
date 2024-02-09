@@ -16,12 +16,602 @@
         "placeholder": "New STRIDE diagram description",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
         "version": "2.1.3",
-        "cells": [],
+        "cells": [
+          {
+            "position": {
+              "x": 350,
+              "y": 170
+            },
+            "size": {
+              "width": 60,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Aplicación Web"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "id": "9f836f5c-3a03-45f6-bfb2-c9f9d880c424",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Process",
+              "name": "Aplicación Web",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "handlesCardPayment": true,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": true,
+              "privilegeLevel": "",
+              "threats": [
+                {
+                  "id": "d3216324-1e1b-450c-99da-790d0a432262",
+                  "title": "Tampering",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Un atacante podría intentar modificar el comportamiento de la aplicación web manipulando los datos o parámetros enviados en las solicitudes HTTP",
+                  "mitigation": "Aplicar controles de acceso adecuados para restringir el acceso a funciones y datos sensibles dentro de la aplicación.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 4,
+                  "score": ""
+                },
+                {
+                  "id": "bbc733ad-411e-4b38-9acf-e96a39ab6db3",
+                  "title": "Repudation",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "Un usuario malintencionado podría negar haber realizado ciertas acciones dentro de la aplicación, como realizar un pedido o cambiar su información personal.",
+                  "mitigation": "    Implementar un registro de auditoría que registre todas las acciones realizadas por los usuarios, incluyendo el envío de pedidos y cambios de información personal.\n    Utilizar firmas digitales o tokens de sesión para asociar de manera única las acciones con los usuarios que las realizaron.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": ""
+                },
+                {
+                  "id": "bb420da9-b5a2-410c-8de6-f966f00c6d65",
+                  "title": "Information disclosure",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Los datos almacenados en la aplicación podrían ser comprometidos si no se aplican controles de acceso adecuados, lo que permite a un atacante acceder a información confidencial.",
+                  "mitigation": "Aplicar controles de acceso adecuados para restringir el acceso a información sensible.\nUtilizar cifrado para proteger los datos confidenciales tanto en reposo como en tránsito.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": ""
+                },
+                {
+                  "id": "3906e49b-a90a-449a-b9ce-5af25532436e",
+                  "title": "Elevation of privilege",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Elevation of privilege",
+                  "description": "Un atacante podría intentar obtener acceso no autorizado a funciones administrativas o privilegios elevados dentro de la aplicación, por ejemplo, explotando vulnerabilidades de autorización.",
+                  "mitigation": "    Aplicar el principio de privilegio mínimo, otorgando a los usuarios solo los permisos necesarios para realizar sus tareas.\n    Implementar controles de acceso basados en roles para limitar el acceso a funciones administrativas solo a usuarios autorizados.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 7,
+                  "score": ""
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 40,
+              "y": 175
+            },
+            "size": {
+              "width": 130,
+              "height": 50
+            },
+            "attrs": {
+              "text": {
+                "text": "Navegador"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "id": "c0dccbb1-a948-48fb-8b0d-ecbf7ea1ba5e",
+            "zIndex": 2,
+            "data": {
+              "type": "tm.Actor",
+              "name": "Navegador",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "providesAuthentication": true,
+              "threats": [
+                {
+                  "id": "63fb7618-d12b-4086-867f-157ddb3b27f2",
+                  "title": "Suplantación de Identidad",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "Un atacante podría suplantar la identidad de un usuario legítimo y realizar acciones en su nombre, como realizar pedidos falsos o acceder a información personal.",
+                  "mitigation": "Implementar un sistema sólido de autenticación, como autenticación de dos factores (2FA) o autenticación basada en token. Además, utilizar HTTPS en todas las comunicaciones para evitar ataques de intermediarios.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": ""
+                },
+                {
+                  "id": "11553624-6e99-442e-94b5-b587baed534f",
+                  "title": "Repudio",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "Un usuario podría negar haber realizado ciertas acciones.2",
+                  "mitigation": "Implementar un sistema de registro de acciones y eventos robusto y a prueba de manipulaciones. Registrar todas las acciones realizadas por los usuarios, incluidas las solicitudes y las acciones realizadas en la aplicación.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 3,
+                  "score": ""
+                }
+              ]
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "351e3b93-c53e-48b5-964d-d861b82e93ba",
+            "source": {
+              "cell": "c0dccbb1-a948-48fb-8b0d-ecbf7ea1ba5e"
+            },
+            "target": {
+              "cell": "9f836f5c-3a03-45f6-bfb2-c9f9d880c424"
+            },
+            "vertices": [
+              {
+                "x": 220,
+                "y": 110
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "4a424aad-01a9-4943-ac3f-2866725b47b3",
+            "source": {
+              "cell": "9f836f5c-3a03-45f6-bfb2-c9f9d880c424"
+            },
+            "target": {
+              "cell": "c0dccbb1-a948-48fb-8b0d-ecbf7ea1ba5e"
+            },
+            "vertices": [
+              {
+                "x": 220,
+                "y": 270
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "e0dcfcb7-79c3-41f3-8638-a734888a289c",
+            "source": {
+              "cell": "9f836f5c-3a03-45f6-bfb2-c9f9d880c424"
+            },
+            "target": {
+              "cell": "664c0a02-b70a-4ea3-a05c-9d6a6fff9573"
+            },
+            "vertices": [
+              {
+                "x": 520,
+                "y": 290
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "7e0560f0-437b-4a3d-be0d-25ff530984e4",
+            "source": {
+              "cell": "664c0a02-b70a-4ea3-a05c-9d6a6fff9573"
+            },
+            "target": {
+              "cell": "9f836f5c-3a03-45f6-bfb2-c9f9d880c424"
+            },
+            "vertices": [
+              {
+                "x": 500,
+                "y": 110
+              }
+            ]
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            },
+            "id": "94a2e0a3-9f98-48d6-9cd9-e07b1059cd6a",
+            "source": {
+              "x": 300,
+              "y": 90
+            },
+            "target": {
+              "x": 320,
+              "y": 290
+            },
+            "vertices": [
+              {
+                "x": 230,
+                "y": 180
+              },
+              {
+                "x": 300,
+                "y": 270
+              }
+            ]
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            },
+            "id": "f70f5db8-a920-4427-a967-d48c96f9b569",
+            "source": {
+              "x": 610,
+              "y": 120
+            },
+            "target": {
+              "x": 630,
+              "y": 280
+            },
+            "vertices": [
+              {
+                "x": 520,
+                "y": 180
+              },
+              {
+                "x": 540,
+                "y": 250
+              }
+            ]
+          },
+          {
+            "position": {
+              "x": 570,
+              "y": 165
+            },
+            "size": {
+              "width": 120,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Base de Datos"
+              },
+              "topLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "id": "664c0a02-b70a-4ea3-a05c-9d6a6fff9573",
+            "zIndex": 11,
+            "data": {
+              "type": "tm.Store",
+              "name": "Base de Datos",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isALog": true,
+              "isEncrypted": true,
+              "isSigned": false,
+              "storesCredentials": true,
+              "storesInventory": false,
+              "threats": [
+                {
+                  "id": "6bac00e4-80d2-4b74-8069-3a360ce25cbd",
+                  "title": "Tampering",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Un atacante podría intentar modificar datos en la base de datos, por ejemplo, mediante la inyección de SQL.",
+                  "mitigation": "Utilizar consultas preparadas y parámetros de consulta para prevenir la inyección de SQL. Implementar controles de acceso y privilegios a nivel de base de datos para restringir las modificaciones no autorizadas.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": ""
+                },
+                {
+                  "id": "05012068-6c87-41bc-aae8-59727887437d",
+                  "title": "New STRIDE threat",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "Un usuario malintencionado podría negar haber realizado ciertas acciones en la base de datos, como realizar cambios en los registros.",
+                  "mitigation": "Mantener un registro de auditoría detallado que registre todas las operaciones realizadas en la base de datos. Utilizar técnicas de firma digital para asegurar la autenticidad de las operaciones.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
+                  "score": ""
+                },
+                {
+                  "id": "3334ccb6-8562-4e84-85c1-844d56a70c09",
+                  "title": "Divulgación de información",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Los datos almacenados en la base de datos podrían ser expuestos si se accede de manera no autorizada.",
+                  "mitigation": " Aplicar controles de acceso granulares para restringir el acceso a datos sensibles. Utilizar cifrado para proteger los datos confidenciales en reposo.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 11,
+                  "score": ""
+                },
+                {
+                  "id": "902cd742-e515-4f1d-bc88-019399cb4620",
+                  "title": "Denegación de Servicio",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "Un atacante podría intentar realizar ataques de denegación de servicio contra la base de datos, por ejemplo, inundándola con solicitudes maliciosas.",
+                  "mitigation": "Implementar límites de tasa y mecanismos de control de acceso para proteger la base de datos contra ataques de denegación de servicio. Realizar pruebas de estrés para evaluar la capacidad de la base de datos para manejar cargas de trabajo intensivas.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": ""
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 160,
+              "y": 280
+            },
+            "size": {
+              "width": 112.5,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Web Response"
+              }
+            },
+            "visible": true,
+            "shape": "td-text-block",
+            "id": "2ad60758-c1c8-4e48-b128-626fb0e2b72d",
+            "zIndex": 12,
+            "data": {
+              "type": "tm.Text",
+              "name": "Web Response",
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 160,
+              "y": 60
+            },
+            "size": {
+              "width": 112.5,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Web Request"
+              }
+            },
+            "visible": true,
+            "shape": "td-text-block",
+            "id": "adf7d880-bc1b-4ab4-9775-a75458e5b531",
+            "data": {
+              "type": "tm.Text",
+              "name": "Web Request",
+              "hasOpenThreats": false
+            },
+            "zIndex": 13
+          },
+          {
+            "position": {
+              "x": 457.5,
+              "y": 300
+            },
+            "size": {
+              "width": 112.5,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Queries"
+              }
+            },
+            "visible": true,
+            "shape": "td-text-block",
+            "id": "d120371c-a914-49d2-9059-9e945a805854",
+            "data": {
+              "type": "tm.Text",
+              "name": "Queries",
+              "hasOpenThreats": false
+            },
+            "zIndex": 14
+          },
+          {
+            "position": {
+              "x": 482.5,
+              "y": 40
+            },
+            "size": {
+              "width": 110,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Web App \nQuery Results"
+              }
+            },
+            "visible": true,
+            "shape": "td-text-block",
+            "id": "0e599d93-0bb7-4dea-bdf3-d0d260b71442",
+            "data": {
+              "type": "tm.Text",
+              "name": "Web App \nQuery Results",
+              "hasOpenThreats": false
+            },
+            "zIndex": 15
+          }
+        ],
         "description": "Identificar amenazas a nivel de arquitectura"
       }
     ],
     "diagramTop": 1,
     "reviewer": "Alexander Vicente",
-    "threatTop": 0
+    "threatTop": 12
   }
 }
